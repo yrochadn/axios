@@ -5,7 +5,7 @@ const headersEl = document.getElementById('headers');
 const configEl = document.getElementById('config');
 
 
-//Metodo GET - Obter
+//Metodo GET - Obter dados da API
 
 const get = () => {
     const url = 'https://jsonplaceholder.typicode.com/posts'
@@ -22,22 +22,80 @@ const get = () => {
 }
 
 
-//Metodo POST - 
+//Metodo POST - Enviar dados para o BackEND (Aqui é necessário criar uma cosntante data e referenciar na chamada do axios.post)
 
 const post = () => {
-    console.log('post');
+    const url ='https://jsonplaceholder.typicode.com/posts';
+
+    const data ={
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+    }
+
+    axios.post(url, data)
+    .then((res)=> {
+        renderOutput(res)
+    })
+    .catch((err)=> {
+        console.log(err)
+    })
 }
+
+//Metodo PUT - Colcoar informações no backend, aqui é encessário passar o ID do post na url, criar uma constante data e referenciar na chamada do axios.put ( substitui todos os campos)
 
 const put = () => {
-    console.log('put');
+    const url = 'https://jsonplaceholder.typicode.com/posts/1'
+
+    data={
+        id: 1,
+        title: 'LaraVue',
+        body: 'bar',
+        userId: 1,
+    }
+
+    axios.put(url, data)
+    .then((res)=> {
+        renderOutput(res)
+    })
+    .catch((err)=> {
+        console.log(err)
+    })
 }
+
+//Metodo PATCH - Colocar informações no backend, aqui é necessário passar o ID do post na url, criar uma constante data e referenciar na chamada do axios.put ( substitui apenas alguns campos)
 
 const patch = () => {
-    console.log('patch');
+    const url = 'https://jsonplaceholder.typicode.com/posts/1'
+
+    data = {
+        id: 1,
+        title: 'LaraVue',
+    }
+
+    axios.patch(url, data)
+    .then((res)=>{
+        renderOutput(res)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
+//Metodo DELETE - Deleta as informações no backend, aqui é nencessário passar o ID do post na url.
+
 const del = () => {
-    console.log('delete');
+    const url = 'https://jsonplaceholder.typicode.com/posts/2'
+
+
+    axios.delete(url )
+    .then((res)=>{
+        renderOutput(res)
+    })
+
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
 const multiple = () => {
