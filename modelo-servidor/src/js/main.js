@@ -49,7 +49,7 @@ const put = () => {
 
     data={
         id: 1,
-        title: 'LaraVue',
+        title: 'dsa',
         body: 'bar',
         userId: 1,
     }
